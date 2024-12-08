@@ -27,7 +27,7 @@ jobs:
 
       - name: Install system dependencies (macOS)
         if: runner.os == 'macOS'
-        run: 
+        run: |
           brew update
           brew install zbar
           brew link zbar
@@ -35,7 +35,7 @@ jobs:
       - name: Install system dependencies (Windows)
         if: runner.os == 'Windows'
         run: |
-          choco install zbar --version 0.10.0 --install-arguments "/quiet" -y || exit 0
+          choco install zbar --version 0.10.0 -y || exit 0
 
       - name: Install Python dependencies
         run: |
