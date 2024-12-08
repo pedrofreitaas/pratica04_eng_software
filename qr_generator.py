@@ -25,6 +25,6 @@ class QRCodeGenerator:
         return self.save_path
 
 if __name__ == "__main__":
-    qr_generator = QRCodeGenerator("images/output.png")
+    qr_generator = QRCodeGenerator("output.png")
     qr_path = qr_generator.generate("Hello, World!")
     print(f"QR Code saved to: {qr_path}")

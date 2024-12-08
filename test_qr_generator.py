@@ -1,7 +1,6 @@
 import os
 import pytest
-from main import QRCodeGenerator
-from qrcode import QRCode
+from qr_generator import QRCodeGenerator
 from PIL import Image
 from pyzbar.pyzbar import decode
 
@@ -17,7 +16,7 @@ def read_qr_code(image_path):
 @pytest.fixture
 def qr_generator():
     """Fixture to initialize QRCodeGenerator."""
-    return QRCodeGenerator(save_path="images/test_qr_code.png")
+    return QRCodeGenerator(save_path="test_qr_code.png")
 
 def teardown_function():
     """Remove the QR Code file after each test."""
@@ -44,12 +43,9 @@ def test_generate_custom_save_path():
     assert os.path.exists(result_path)
 
 def test_generated_qr_content(qr_generator):
-    # Input data for the QR Code
     data = "https://example.com"
 
-    # Generate QR Code
     result_path = qr_generator.generate(data)
 
-    # Read the QR Code and verify its content
     read_data = read_qr_code(result_path)
     assert read_data == data, f"Expected QR content '{data}', got '{read_data}'"
