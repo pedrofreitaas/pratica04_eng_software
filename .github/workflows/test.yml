@@ -30,7 +30,8 @@ jobs:
         run: |
           brew update
           brew install zbar
-          brew link zbar
+          brew link --overwrite --dry-run zbar
+          brew link --overwrite zbar
 
       - name: Install system dependencies (Windows)
         if: runner.os == 'Windows'
