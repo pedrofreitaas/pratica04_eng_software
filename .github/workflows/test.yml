@@ -28,7 +28,8 @@ jobs:
       - name: Install system dependencies (macOS)
         if: runner.os == 'macOS'
         run: |
-          brew install zbar --version 0.10.0 -y || exit 0
+          brew upgrade 
+          brew install zbar
         
       - name: Install system dependencies (Windows)
         if: runner.os == 'Windows'
