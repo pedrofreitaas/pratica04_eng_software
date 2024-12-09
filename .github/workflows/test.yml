@@ -30,6 +30,8 @@ jobs:
         run: |
           brew upgrade 
           brew install zbar
+          mkdir ~/lib
+          ln -s $(brew --prefix zbar)/lib/libzbar.dylib ~/lib/libzbar.dylib
         
       - name: Install system dependencies (Windows)
         if: runner.os == 'Windows'
