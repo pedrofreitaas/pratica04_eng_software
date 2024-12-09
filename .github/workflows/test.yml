@@ -28,10 +28,7 @@ jobs:
       - name: Install system dependencies (macOS)
         if: runner.os == 'macOS'
         run: |
-          brew update
           brew install zbar
-          brew link --overwrite --dry-run zbar
-          brew link --overwrite zbar
 
       - name: Install system dependencies (Windows)
         if: runner.os == 'Windows'
