@@ -28,7 +28,7 @@ jobs:
       - name: Install system dependencies (macOS)
         if: runner.os == 'macOS'
         run: |
-          sudo apt-get install libzbar0
+          brew install libzbar0
         
       - name: Install system dependencies (Windows)
         if: runner.os == 'Windows'
